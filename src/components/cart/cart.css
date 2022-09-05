@@ -1,0 +1,27 @@
+.cart-header{
+  margin-bottom: 42px;
+  color: rgba(243, 164, 70, 1);
+  font-size: 18px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cart{
+  background-color: rgba(29, 29, 29, 0.9);
+  height: 100vh;
+  overflow: auto;
+
+}
+
+@media only screen and (min-width: 768px) {
+  .cart-header{
+    margin-bottom: 42px;
+    color: rgba(243, 164, 70, 1);
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+  .cart{
+    background-color: rgba(29, 29, 29, 0.9);
+    height: 100vh;
+    padding: 64px 76px 122px 102px;
+
+}
+}

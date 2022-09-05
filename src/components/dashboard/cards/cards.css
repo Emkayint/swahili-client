@@ -1,0 +1,38 @@
+.dash-cards{
+  width: 90%;
+  height: auto;
+  align-items: center;
+  margin: 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.dash-cards span{
+  padding-bottom: 20px;
+  font-size: 10px;
+  color: #555555;
+  font-weight: bold;
+}
+
+h2{
+  font-size: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .dash-cards{
+    width: 96%;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  .dash-cards span{
+    padding-bottom: 20px;
+    font-size: 28px;
+    color: #555555;
+    font-weight: bold;
+  }
+
+}

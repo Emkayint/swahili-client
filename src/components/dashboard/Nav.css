@@ -1,0 +1,56 @@
+.nav{
+  height: 100vh;
+  background-color: #F3A446;
+  width: 50%;
+  float: left;
+  position: fixed;
+  z-index: 67;
+  margin-top: 50px;
+  display: none;
+}
+
+header{
+  padding-top: 33px;
+  padding-left: 20px;
+  font-size: 30px;
+  font-family: 'Irish Grover', cursive;
+}
+
+.links{
+  padding-top: 112px ;
+}
+
+.user-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 85px; 
+}
+.user-links p{
+  font-size: 18px;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav{
+  height: 100vh;
+  background-color: #F3A446;
+  width: 18%;
+  float: left;
+  position: unset;
+}
+
+}
+
+@media only screen and (min-width: 768px) {
+  .nav{
+    height: 100vh;
+    background-color: #F3A446;
+    width: 18%;
+    float: left;
+    position: unset;
+    margin-top: 0px;
+    display: block;
+  }
+}

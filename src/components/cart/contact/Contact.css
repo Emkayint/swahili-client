@@ -1,0 +1,57 @@
+.contact{
+  height: 80vh;
+  background-color: rgba(85, 85, 85, 0.7);
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+  
+}
+
+.details{
+  padding-top: 33px;
+  color: rgba(243, 164, 70, 1);
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.contact-info{
+  margin-top: 60px;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+.span1{
+  color: rgba(243, 164, 70, 1);
+  width: 30%;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.span2{
+  color: white;
+}
+
+.contact button{
+  background-color: rgba(243, 164, 70, 1);
+  border: none;
+  padding: 6px 50px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.button-check{
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact {
+    margin: 10%;
+    border-radius: 20px;
+
+  }
+  .contact-info{
+    margin-top: 80px;
+  }
+}

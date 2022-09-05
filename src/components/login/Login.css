@@ -1,0 +1,143 @@
+.form{
+  background-color: #151515;
+  height: 100vh;
+  padding: 46px;
+}
+
+.login{
+  height: 100vh;
+}
+
+.header{
+  padding-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.header p{
+  font-size: 46px;
+  font-weight: bold;
+  color: #F3A446;
+}
+
+.display{
+  background-color: #F3A446;
+  height: 100vh;
+}
+
+.display img{
+  width: 140px;
+  height: 147px;
+}
+
+/* Username Setiings */
+.username{
+  margin-top: 5vh;
+  display: flex;
+}
+
+.username input{
+  border: none;
+  padding: 14px;
+  background: none;
+  align-self: center;
+  color: #F3A446;
+  font-size: 18px;
+  width: 90%;
+  margin-left: 10px;
+}
+
+.login hr{
+  margin-top: 40px;
+}
+
+.buttons{
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons p{
+  color: white;
+}
+
+.buttons button{
+  background-color: #F3A446;
+  padding: 5px 20px;
+}
+
+
+/* welcome header */
+header{
+  padding-top: 10vh;
+  text-align: center;
+  width: 100%;
+}
+header p{
+  font-size: 37px;
+  color: #151515;
+  font-family: 'Irish Grover', cursive;
+}
+
+header img{
+  margin-top: 43px;
+}
+
+header span{
+  font-size: 37px;
+  display: block;
+  color: #151515;
+  font-family: 'Irish Grover', cursive;
+  padding-top: 53px;
+}
+
+.body{
+  margin: 43px;
+  text-align: center;
+  color: #ffff;
+}
+
+.creator{
+  margin-top: 10vh;
+  font-family: 'Irish Grover', cursive;
+  color: #151515;
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+  align-items: center;
+  font-size: 23px;
+}
+
+.creator .span{
+  display: inline-block;
+  height: 50px;
+  border-left: 2px solid white;
+}
+
+@media only screen and (min-width: 600px) {
+  .buttons button{
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    font-family: 'Irish Grover', cursive;
+
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  .buttons{
+    padding-top: 10vh;
+  }
+
+  .buttons button{
+    padding: 10px 30px;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+  .creator{
+    padding: 0px 15%;
+    margin-top: 15vh;
+  }
+}
