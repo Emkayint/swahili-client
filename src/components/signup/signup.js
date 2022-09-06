@@ -32,7 +32,10 @@ function Signup() {
     })
     .then(res => {
       if(res.ok){
-        res.json().then(user => setUser(user))
+        res.json().then(user => {
+          setUser(user)
+          localStorage.setItem("jwt", user.jwt)
+        })
       } else {
         res.json().then(err => setErros(err.errors))
       }

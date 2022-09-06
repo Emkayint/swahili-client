@@ -3,13 +3,15 @@ import "./OrderCard.css";
 
 const OrderCard = ({name, price, description, image, id}) => {
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("jwt")
   function handleClick(){
     setLoading(!loading)
     fetch("/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", 
-        Accept: "application/json"
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`
       }, 
       body: JSON.stringify({
         product_id: id
@@ -26,6 +28,7 @@ const OrderCard = ({name, price, description, image, id}) => {
         setLoading(!loading)
       }
     })
+    setLoading(!loading)
   }
 
   return (

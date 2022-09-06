@@ -7,6 +7,7 @@ function Itemscard({name, amount, id, image, price}){
   const [loading, setLoading] = useState(false)
   const [quantity, setQuantity]= useState(amount)
   const [deleted, setDeleted] = useState(false)
+  const token = localStorage.getItem('jwt')
 
   function handleAdd(){
     setLoading(!loading)
@@ -14,7 +15,8 @@ function Itemscard({name, amount, id, image, price}){
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`
       }, 
       body: JSON.stringify({
         quantity: (quantity + 1)
@@ -42,20 +44,20 @@ function Itemscard({name, amount, id, image, price}){
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
-        }, 
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({
-          quantity: quantity - 1
-        })
-      })
-      .then(r => {
-        if(r.ok){
-          setLoading(!loading)
-          r.json().then(res => setQuantity(res.quantity))
+          quantity: quantity - 1,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          setLoading(!loading);
+          r.json().then((res) => setQuantity(res.quantity));
         } else {
-          alert("Fatal error occoured")
+          alert("Fatal error occoured");
         }
-      })
+      });
     }
 
   }
@@ -63,14 +65,14 @@ function Itemscard({name, amount, id, image, price}){
   function handleDelete(){
     fetch(`/orders/${id}`, {
       method: "DELETE",
-      "Accept" : "application/json",
-      "Content-Type" : "application.json"
-    }).then(r => {
-      if(r.ok){
-        setDeleted(!deleted)
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-
-    })
+    }).then((r) => {
+      if (r.ok) {
+        setDeleted(!deleted);
+      }
+    });
 
   }
   return (

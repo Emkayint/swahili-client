@@ -1,8 +1,31 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import Nav from "../Nav";
+import User from "../user/user";
 import "./Board.css"
-import Cards from "../cards/cards";
+// import Cards from "../cards/cards";
 
 function Board(){
+
+  const [users, setUsers] = useState([])
+  const token = localStorage.getItem("jwt")
+
+  useEffect(() => {
+    fetch("users", {
+      method: "GET", 
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(r => {
+      if(r.ok){
+        r.json().then(setUsers)
+      }
+    })
+  }, [token, setUsers])
+
+
+  const tableUsers = users.map(user => (<User key = {user.id} username = {user.username} phone = {user.phone} id = {user.id} role = {user.role}/> ))
   return (
     <div className="dash">
       <Nav />
@@ -13,14 +36,20 @@ function Board(){
             <i>Monday,</i> 11 Jully 2022
           </span>
         </div>
-        <div className="roww">
-          <Cards color="#00CCFF" text="Total orders" />
-          <Cards color="#FF99FF" text="Total orders" />
-          <Cards color="#0079F2" text="Total orders" />
-          <Cards color="#FFC600" text="Total orders" />
-          <div className="users col-s-12">
-            
-          </div>
+        <div className="users">
+          <table className="w3-table-all  w3-hoverable">
+            <thead>
+              <tr className="w3-black">
+                <th>#</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableUsers}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

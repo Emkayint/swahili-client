@@ -35,7 +35,7 @@ function Nav(){
             data-height="36"
           ></span>
           <NavLink to = "/upload">
-            <p>Products</p>
+            <p>Upload</p>
           </NavLink>
         </div>
         <div className="user-links">
@@ -48,16 +48,7 @@ function Nav(){
           ></span>
           <p>Products</p>
         </div>
-        <div className="user-links">
-          <span
-            className="iconify"
-            data-icon="bi:chat-dots-fill"
-            style={{ color: "white" }}
-            data-width="36"
-            data-height="36"
-          ></span>
-          <p>Products</p>
-        </div>
+        
       </div>
     </div>
   );

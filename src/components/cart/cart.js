@@ -7,9 +7,15 @@ import Itemscard from "./items-card/items"
 function Cart() {
   const [items, setItems] = useState([])
   const {user} = useContext(UserContext) 
+  const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch('/orders')
+    fetch('/orders', {
+      method: "GET", 
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
     .then(r => {
       if(r.ok){
         r.json().then(setItems)

@@ -9,24 +9,20 @@ function Navbar() {
   const { user, setUser } = useContext(UserContext);
 
   function handleLogout(){
-    fetch("/logout")
-    .then(res => {
-      if(res.ok){
-        setUser(null);
-      }
-    })
-    console.log(user)
+    setUser(null)
+    localStorage.removeItem("jwt")
   }
   return (
     <div className="navbar">
       <div className="logo">Swahili Spot</div>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/cart">Cart</NavLink>
+      { user? <NavLink to="/cart">Cart</NavLink> : null}
+      
       {!user ? <NavLink to="/login">Login</NavLink> : null}
 
       {!user ? <NavLink to="/signin">SigIn</NavLink> : null}
 
-      <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="/dashboard">{user && user.role === "admin" ? "Dashboard" : null}</NavLink>
       <span className="user">{user ? user.username : ""}</span>
       {user ? <button className="logout" onClick={handleLogout}>Logout</button> : null}
     </div>

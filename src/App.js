@@ -12,9 +12,15 @@ import { UserContext } from './context/user';
 
 function App() {
   const {user, setUser} = useContext(UserContext)
+  const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("/me")
+    fetch("/me", {
+      method: "GET",
+      headers: {
+        Authorization:  `Bearer ${token}`
+      }
+    })
     .then(r => {
       if(r.ok){
         r.json().then(user => setUser(user)) 
@@ -27,7 +33,7 @@ function App() {
       <Navbar />
       <div className="routes">
         <Routes>
-          <Route path="/dashboard" element={<Board />} />
+          <Route path="/dashboard" element={user && user.role === "admin" ? <Board /> : <Menu />} />
           <Route
             path="/login"
             element={!user ? <Login/> : <Menu /> }
