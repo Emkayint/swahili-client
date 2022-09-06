@@ -32,13 +32,11 @@ const OrderCard = ({name, price, description, image, id}) => {
   }
 
   return (
-    <div className="col-s-6 col-3 cards">
+    <div className="col-s-6 col-3 col-sm-12 cards">
       <div className="card-menu">
-        <br />
-        <br />
-        <span className="hrr"></span>
+        <i className="hrr s-h"></i>
         <img src={image} alt="" className="image" />
-        <span className="hrr"></span>
+        <i className="hrr "></i>
         <div className="info">
           <div className="price">{`ksh ${price}`}</div>
           <div className="more-info">i</div>

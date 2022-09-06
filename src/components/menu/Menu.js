@@ -1,6 +1,6 @@
 import "./Menu.css"
-import OrderCard from "../OrderCard/OrderCard"
-import { useEffect, useState } from "react";
+import OrderCard from "./OrderCard/OrderCard"
+// import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 const Menu = () => {
   const products = useFetch("/products")
