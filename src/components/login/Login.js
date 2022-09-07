@@ -17,20 +17,20 @@ function Login(){
   
 
 
-    fetch("/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username: username,
-        password: password
+        password: password,
       }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user)
-          localStorage.setItem("jwt", user.jwt)
+          setUser(user);
+          localStorage.setItem("jwt", user.jwt);
         });
       } else {
         r.json().then((err) => setErros(err.errors));

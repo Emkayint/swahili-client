@@ -6,28 +6,27 @@ const OrderCard = ({name, price, description, image, id}) => {
   const token = localStorage.getItem("jwt")
   function handleClick(){
     setLoading(!loading)
-    fetch("/orders", {
+    fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", 
+        "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${token}`
-      }, 
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
-        product_id: id
-      })
-    })
-    .then(r => {
-      if(r.ok){
-        r.json().then(res => {
-          alert("Success")
-          setLoading(!loading)
-        })
+        product_id: id,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((res) => {
+          alert("Success");
+          setLoading(!loading);
+        });
       } else {
-        alert("You Need To Log In First!")
-        setLoading(!loading)
+        alert("You Need To Log In First!");
+        setLoading(!loading);
       }
-    })
+    });
     setLoading(!loading)
   }
 

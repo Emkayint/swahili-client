@@ -22,24 +22,23 @@ function Signup() {
       phone: phone
     }
 
-    fetch("/signin", {
+    fetch("http://localhost:3000/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
       },
-      body: JSON.stringify(myObject)
-    })
-    .then(res => {
-      if(res.ok){
-        res.json().then(user => {
-          setUser(user)
-          localStorage.setItem("jwt", user.jwt)
-        })
+      body: JSON.stringify(myObject),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUser(user);
+          localStorage.setItem("jwt", user.jwt);
+        });
       } else {
-        res.json().then(err => setErros(err.errors))
+        res.json().then((err) => setErros(err.errors));
       }
-    })
+    });
 
   }
 

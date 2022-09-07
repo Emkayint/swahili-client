@@ -10,7 +10,7 @@ function Cart() {
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch('/orders', {
+    fetch('http://localhost:3000/orders', {
       method: "GET", 
       headers: {
         Authorization: `Bearer ${token}`

@@ -11,28 +11,27 @@ function Itemscard({name, amount, id, image, price}){
 
   function handleAdd(){
     setLoading(!loading)
-    fetch(`/orders/${id}`, {
+    fetch(`http://localhost:3000/orders/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${token}`
-      }, 
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
-        quantity: (quantity + 1)
-      })
-    })
-    .then(r => {
-      if(r.ok){
-        setQuantity(quantity => quantity + 1)
-        setLoading(!loading)
-        r.json().then(res => {
-          setQuantity(quantity + 1)
-        })
+        quantity: quantity + 1,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        setQuantity((quantity) => quantity + 1);
+        setLoading(!loading);
+        r.json().then((res) => {
+          setQuantity(quantity + 1);
+        });
       } else {
-        alert("Fatal error occoured")
+        alert("Fatal error occoured");
       }
-    })
+    });
   }
   function handleMinus(){
     if( quantity === 1){
@@ -40,7 +39,7 @@ function Itemscard({name, amount, id, image, price}){
       setLoading(!loading)
     } else {
       setLoading(!loading)
-      fetch(`/orders/${id}`, {
+      fetch(`http://localhost:3000/orders/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -63,11 +62,11 @@ function Itemscard({name, amount, id, image, price}){
   }
 
   function handleDelete(){
-    fetch(`/orders/${id}`, {
+    fetch(`http://localhost:3000/orders/${id}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     }).then((r) => {
       if (r.ok) {
         setDeleted(!deleted);

@@ -5,9 +5,9 @@ const useFetch = (path) => {
   const [response, setResponse] = useState([])
 
    useEffect(() => {
-    fetch(`${path}`)
-    .then(res => res.json())
-    .then(setResponse)
+    fetch(`http://localhost:3000${path}`)
+      .then((res) => res.json())
+      .then(setResponse);
    }, [path])
 
    return response

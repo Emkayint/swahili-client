@@ -15,17 +15,16 @@ function App() {
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("/me", {
+    fetch("http://localhost:3000/me", {
       method: "GET",
       headers: {
-        Authorization:  `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
-    })
-    .then(r => {
-      if(r.ok){
-        r.json().then(user => setUser(user)) 
-      }
-    })
+    });
   }, [setUser])
 
   return (

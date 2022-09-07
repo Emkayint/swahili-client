@@ -11,17 +11,16 @@ function Board(){
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("users", {
-      method: "GET", 
+    fetch("http://localhost:3000/users", {
+      method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(setUsers);
       }
-    })
-    .then(r => {
-      if(r.ok){
-        r.json().then(setUsers)
-      }
-    })
+    });
   }, [token, setUsers])
 
 
@@ -32,9 +31,6 @@ function Board(){
       <div className="board">
         <div className="header">
           <input type="text" placeholder="Search" />
-          <span>
-            <i>Monday,</i> 11 Jully 2022
-          </span>
         </div>
         <div className="users">
           <table className="w3-table-all  w3-hoverable">

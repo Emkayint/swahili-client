@@ -24,27 +24,26 @@ function Upload() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch("/products", {
+    fetch("http://localhost:3000/products", {
       method: "POST",
       headers: {
-        "Content-Type" : "application/json",
-        Accept: "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         name: name,
         description: description,
         price: price,
         image: `${imageId}`,
-        amount: amount
-      })
-    })
-    .then(r => {
-      if(r.ok){
-        r.json().then(r => alert("Success"))
+        amount: amount,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((r) => alert("Success"));
       } else {
-        alert("an error occured")
+        alert("an error occured");
       }
-    })
+    });
   }
 
   return (
