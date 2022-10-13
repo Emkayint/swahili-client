@@ -1,5 +1,5 @@
 .contact{
-  height: 80vh;
+  height: 75vh;
   background-color: rgba(85, 85, 85, 0.7);
   width: 100%;
   padding: 15px;
@@ -15,7 +15,7 @@
 }
 
 .contact-info{
-  margin-top: 60px;
+  margin-top: 30px;
   border-bottom: 1px solid white;
   padding-bottom: 10px;
 }
@@ -47,11 +47,11 @@
 
 @media only screen and (min-width: 768px) {
   .contact {
-    margin: 10%;
+    /* margin: 10%; */
     border-radius: 20px;
 
   }
   .contact-info{
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }

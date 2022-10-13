@@ -18,6 +18,9 @@
     font-size: 18px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+  .card-content{
+    padding: 10px;
+  }
   .cart{
     background-color: rgba(29, 29, 29, 0.9);
     height: 100vh;
