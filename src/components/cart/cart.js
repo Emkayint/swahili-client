@@ -10,17 +10,16 @@ function Cart() {
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch('http://localhost:3000/orders', {
-      method: "GET", 
+    fetch("https://sheltered-reaches-83899.herokuapp.com/orders", {
+      method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(setItems);
       }
-    })
-    .then(r => {
-      if(r.ok){
-        r.json().then(setItems)
-      }
-    })
+    });
   }, [])
   
 

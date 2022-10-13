@@ -11,7 +11,7 @@ function Board(){
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("http://localhost:3000/users", {
+    fetch("https://sheltered-reaches-83899.herokuapp.com/users", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

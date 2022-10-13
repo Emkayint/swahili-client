@@ -6,7 +6,7 @@ const OrderCard = ({name, price, description, image, id}) => {
   const token = localStorage.getItem("jwt")
   function handleClick(){
     setLoading(!loading)
-    fetch("http://localhost:3000/orders", {
+    fetch("https://sheltered-reaches-83899.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

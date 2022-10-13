@@ -10,33 +10,31 @@ function Contact({setItems}) {
   const pay = () => {
     // console.log(items[0].product.price)
 
-    fetch('/orders')
-    .then(r => {
-      if(r.ok){
-        r.json().then(r => {
-          mpesa(r)
-          
-        })
+    fetch("https://sheltered-reaches-83899.herokuapp.com/orders").then((r) => {
+      if (r.ok) {
+        r.json().then((r) => {
+          mpesa(r);
+        });
       }
-    })
+    });
   }
 
   const mpesa = (items) => {
-    fetch('/payments', {
+    fetch("https://sheltered-reaches-83899.herokuapp.com/payments", {
       method: "POST",
 
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "amount": handleTotal(items)
-      })
-    }).then(r => {
-      if(r.ok){
-        r.json().then(r => console.log(r))
+        amount: handleTotal(items),
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((r) => console.log(r));
       }
-    })
+    });
   }
 
   function handleTotal(items){
