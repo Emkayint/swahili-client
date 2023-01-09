@@ -15,7 +15,7 @@ function App() {
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("https://sheltered-reaches-83899.herokuapp.com/me", {
+    fetch("https://swahili-spot-production.up.railway.app/me", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -25,7 +25,7 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, [setUser])
+  }, [user, token, setUser])
 
   return (
     <div className="App">

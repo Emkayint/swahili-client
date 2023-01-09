@@ -6,7 +6,7 @@ const OrderCard = ({name, price, description, image, id}) => {
   const token = localStorage.getItem("jwt")
   function handleClick(){
     setLoading(!loading)
-    fetch("https://sheltered-reaches-83899.herokuapp.com/orders", {
+    fetch("https://swahili-spot-production.up.railway.app/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,6 +20,7 @@ const OrderCard = ({name, price, description, image, id}) => {
       if (r.ok) {
         r.json().then((res) => {
           alert("Success");
+          console.log(res)
           setLoading(!loading);
         });
       } else {

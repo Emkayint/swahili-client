@@ -10,7 +10,7 @@ function Cart() {
   const token = localStorage.getItem("jwt")
 
   useEffect(() => {
-    fetch("https://sheltered-reaches-83899.herokuapp.com/orders", {
+    fetch("https://swahili-spot-production.up.railway.app/orders", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ function Cart() {
         r.json().then(setItems);
       }
     });
-  }, [])
+  }, [token, setItems])
   
 
   const itemsToDisplay = items.map((item) => (

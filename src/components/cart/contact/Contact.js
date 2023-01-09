@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import "./Contact.css"
 import { UserContext } from '../../../context/user';
 import { useContext } from 'react';
@@ -10,7 +10,7 @@ function Contact({setItems}) {
   const pay = () => {
     // console.log(items[0].product.price)
 
-    fetch("https://sheltered-reaches-83899.herokuapp.com/orders").then((r) => {
+    fetch("https://swahili-spot-production.up.railway.app/orders").then((r) => {
       if (r.ok) {
         r.json().then((r) => {
           mpesa(r);
@@ -20,7 +20,7 @@ function Contact({setItems}) {
   }
 
   const mpesa = (items) => {
-    fetch("https://sheltered-reaches-83899.herokuapp.com/payments", {
+    fetch("https://swahili-spot-production.up.railway.app/payments", {
       method: "POST",
 
       headers: {
@@ -55,13 +55,16 @@ function Contact({setItems}) {
       alert("No Items In cat")
     } else{
       items.forEach(item => {
-        fetch(`/orders/${item.id}`, {
-          method: "DELETE",
-          Accept: "application/json",
-          "Content-Type": "application.json",
-        }).then((r) => {
+        fetch(
+          `https://swahili-spot-production.up.railway.app/orders/${item.id}`,
+          {
+            method: "DELETE",
+            Accept: "application/json",
+            "Content-Type": "application.json",
+          }
+        ).then((r) => {
           if (r.ok) {
-            setItems([])
+            setItems([]);
           }
         });
       })

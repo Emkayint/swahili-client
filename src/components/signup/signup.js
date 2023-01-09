@@ -22,7 +22,7 @@ function Signup() {
       phone: phone
     }
 
-    fetch("http://localhost:3000/signin", {
+    fetch("https://swahili-spot-production.up.railway.app/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

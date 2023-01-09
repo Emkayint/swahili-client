@@ -11,7 +11,7 @@ function Itemscard({name, amount, id, image, price}){
 
   function handleAdd(){
     setLoading(!loading)
-    fetch(`http://localhost:3000/orders/${id}`, {
+    fetch(`https://swahili-spot-production.up.railway.app/orders/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function Itemscard({name, amount, id, image, price}){
       setLoading(!loading)
     } else {
       setLoading(!loading)
-      fetch(`http://localhost:3000/orders/${id}`, {
+      fetch(`https://swahili-spot-production.up.railway.app/orders/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function Itemscard({name, amount, id, image, price}){
   }
 
   function handleDelete(){
-    fetch(`http://localhost:3000/orders/${id}`, {
+    fetch(`https://swahili-spot-production.up.railway.app/orders/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -5,7 +5,7 @@ const useFetch = (path) => {
   const [response, setResponse] = useState([])
 
    useEffect(() => {
-    fetch(`https://sheltered-reaches-83899.herokuapp.com${path}`)
+    fetch(`https://swahili-spot-production.up.railway.app${path}`)
       .then((res) => res.json())
       .then(setResponse);
    }, [path])

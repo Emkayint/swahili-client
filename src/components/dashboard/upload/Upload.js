@@ -24,7 +24,7 @@ function Upload() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch("https://sheltered-reaches-83899.herokuapp.com/products", {
+    fetch("https://swahili-spot-production.up.railway.app/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
